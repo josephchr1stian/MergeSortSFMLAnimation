@@ -1,0 +1,3 @@
+/Users/josephgarcia/CLionProjects/sortAnimation/cmake-build-debug/CMakeFiles/sortAnimation.dir
+/Users/josephgarcia/CLionProjects/sortAnimation/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/josephgarcia/CLionProjects/sortAnimation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
