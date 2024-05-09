@@ -6,23 +6,17 @@
 
 MergeAnimation::MergeAnimation()
 {
-    int size = 300;
-    int arr[size];
-    int arrSize = sizeof(arr) / sizeof(arr[0]);
     sf::RectangleShape rect({3, 100});
     rect.setFillColor(sf::Color::White);
     rect.rotate(180);
-
-    sf::Vector2f pos = {10,420};
-
-    for( int i = 0; i < size; i++)
+    sf::Vector2f locPos = {10,420};
+    for( int i = 0; i < 300; i++)
     {
         int newVal = rand()%400;
-        arr[i] = newVal;
         nums.push_back(newVal);
         rect.setSize({rect.getSize().x, static_cast<float>(newVal)});
-        rect.setPosition(pos);
-        pos.x +=3;
+        rect.setPosition(locPos);
+        locPos.x +=3;
         rects.push_back(rect);
     }
 
@@ -30,25 +24,25 @@ MergeAnimation::MergeAnimation()
 
 void MergeAnimation::update()
 {
-    while(toDo < 300)
+    if (unsorted)
     {
-
+        int arrSize = sizeof(arrayInt) / sizeof(arrayInt[0]);
+        for(int i = 0; i < 300; i++)
+        {
+            arrayInt[i] = nums[i]; //Copy all the ints, sort the array
+        }
+        mergeSortAlgo(arrayInt, arrSize);
+        unsorted = false; // Now its sorted
     }
-    sf::Vector2f pos = {10,420};
-
-    int arrSize = sizeof(arrayInt) / sizeof(arrayInt[0]);
-    for (int i = 0; i < 300; i++)
+    if(toDo < 300) // Change one by  one
     {
-        array[i] = nums[i];
-    }
-    mergeSortAlgo(arraInt, arrSize);
-    for (int i = 0; i < 300; i++)
-    {
-        rects[i].setSize({rects[i].getSize().x, static_cast<float>(array[i])});
-        rects[i].setPosition(pos);
+        sf::sleep(sf::seconds(0.1));
+        rects[toDo].setSize({rects[toDo].getSize().x, static_cast<float>(arrayInt[toDo])});
+        rects[toDo].setPosition(pos);
         pos.x +=3;
+        toDo++;
+        return;
     }
-
 }
 
 void MergeAnimation::merge(int data[], int size, int size2) const

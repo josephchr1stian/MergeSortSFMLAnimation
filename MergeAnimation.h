@@ -15,8 +15,9 @@ private:
     sf::Clock clock;
     std::vector<sf::RectangleShape> rects;
     std::vector<int> nums;
-    int toDo = 300;
+    int toDo = 0;
     int arrayInt[300];
+    bool unsorted = true;
     sf::Vector2f pos = {10,420};
 
 public:

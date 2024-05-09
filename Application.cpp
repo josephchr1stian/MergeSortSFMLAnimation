@@ -20,11 +20,9 @@ void Application::run()
         while(window.pollEvent(event))
         {
             if(event.type == sf::Event::Closed)
-
                 window.close();
-            merger.update();
         }
-
+        merger.update();
         window.clear();//window.draw(words);
         //for(Text & t: textVector)
         //window.draw(t);
