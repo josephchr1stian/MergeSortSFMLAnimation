@@ -36,7 +36,7 @@ void MergeAnimation::update()
     }
     if(toDo < 300) // Change one by  one
     {
-        sf::sleep(sf::seconds(0.1));
+        sf::sleep(sf::seconds(0.01));
         rects[toDo].setSize({rects[toDo].getSize().x, static_cast<float>(arrayInt[toDo])});
         rects[toDo].setPosition(pos);
         pos.x +=3;
